@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'skft!f*_8a#*j3p+2atsw@7rk5qt5+&@^$+d30d@*vwjp%++lm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -82,6 +83,15 @@ DATABASES = {
         'PASSWORD': ''
     }
 }
+
+
+# EMAIL CONFIG
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "allspitfire19@gmail.com"
+EMAIL_HOST_PASSWORD = ""
 
 
 # Password validation
