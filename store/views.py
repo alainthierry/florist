@@ -3,8 +3,16 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from django.conf import settings
 
-
 def index(request):
+	"""
+	The home view that renders the main template
+	
+	Args:
+		request (request): The request
+
+    Returns:
+    	(HttpResponse): The status_code of the  HttpResponse
+	"""
 	context = {
 		'page_title': 'La beauté dans les Fleurs',
 		'title': 'Les Fleurs raconte une vie, Trouvez la vôtre',

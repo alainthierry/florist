@@ -12,22 +12,31 @@ body {
     -o-background-size: cover;
 }
 
-/* */
+/* Presantation */
+ /*background: rgba(255,255,255,0.9);*/
+    /*background: #171717;*/
+    /*background:#454545;*/
+    /* #D1D1D1, #BABABA, #E8E8E8 */
 .presentation {
     display: flex;
     flex-direction: column;
 }
 
 .pres-container {
-    width: 90% !important;
+    width: 100% !important;
     margin: auto !important;
 }
 
 .pres-container img{
-    width: 99% !important;
+    width: 100% !important;
     margin: auto !important;
+    margin-top: 7% !important;
 }
-
+figcaption {
+    color: rgba(0, 0,0, 0.9);
+    padding-top: 20px;
+    transform: scale(1.1);
+}
 
 h2,
 h3,
@@ -118,8 +127,7 @@ hr {
 }
 
 footer {
-    background: #fff;
-    background: rgba(255,255,255,0.9);
+    background: #2E2E2E;
 }
 
 footer p {

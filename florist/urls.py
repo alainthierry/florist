@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path, include
-from store.views import index
+from store  import views
 
 urlpatterns = [
-    re_path(r'^$', index, name='index'),
+    re_path(r'^$', views.index, name='home'),
     re_path(r'^admin/', admin.site.urls),
     re_path(r'^store/', include('store.urls')),
 ]

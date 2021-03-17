@@ -5,6 +5,6 @@ from . import views
 app_name = 'store'
 
 urlpatterns = [
-	re_path('', views.search, name='search'),
+	re_path(r'^search/', views.search, name='search'),
 	
 ]
