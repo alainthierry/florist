@@ -7,4 +7,3 @@ from store.models import (
 admin.site.register(Customer)
 admin.site.register(Booking)
 admin.site.register(Flower)
-
