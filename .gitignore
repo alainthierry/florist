@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 useful_links.text
-store/dumps/store.json
+/store/dumps/
