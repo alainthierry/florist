@@ -22,30 +22,6 @@ class Customer(models.Model):
 		verbose_name = "Client"
 		verbose_name_plural  = "Clients"
 
-class Booking(models.Model):
-	"""docstring for Booking
-	This object represents the booking
-
-	Attributes:
-		booked_date (Date): The booked date,
-		delivery_date (Date): The delivery date,
-		delivered (bool): Is the delivery done ?,
-		customer (Customer): The customer who made the booking,
-
-	"""
-	booked_date = models.DateField("Date de réservation", auto_now_add=True)
-	delivery_date = models.DateField("Date de livraison", )
-	delivered = models.BooleanField("Livraison terminée", default=False)
-	customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-
-	"""def __str__(self):
-		return self.delivery_date
-	"""
-
-	class Meta:
-		verbose_name = "Réservation"
-		verbose_name_plural = "Réservations"
-
 class Flower(models.Model):
 	"""docstring for Flower
 	This object reprents the flower that wil be booked
@@ -60,11 +36,39 @@ class Flower(models.Model):
 	"""
 	name = models.CharField("Nom", max_length=30)
 	description = models.TextField("Description")
-	price = models.IntegerField("Prix", null=False)
+	price = models.FloatField("Prix", null=False)
 	available = models.BooleanField(default=True)
-	image_url = models.URLField("Image",)
-	booking = models.ForeignKey(Booking, on_delete=models.CASCADE)
+	image_url = models.URLField("Image", max_length=3000)
+	created_at = models.DateField("Date d'ajout ", auto_now_add=True)
 
 	class Meta:
 		verbose_name = "Fleur"
 		verbose_name_plural = "Fleurs"
+
+	def __str__(self):
+		return self.name
+
+class Booking(models.Model):
+	"""docstring for Booking
+	This object represents the booking
+
+	Attributes:
+		booked_date (Date): The booked date,
+		delivery_date (Date): The delivery date,
+		delivered (bool): Is the delivery done ?,
+		customer (Customer): The customer who made the booking,
+
+	"""
+	booked_date = models.DateField("Date de réservation", auto_now_add=True)
+	delivered = models.BooleanField("Livraison terminée", default=False)
+	customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+	flower = models.ForeignKey(Flower, on_delete=models.CASCADE)
+	
+	class Meta:
+		verbose_name = "Réservation"
+		verbose_name_plural = "Réservations"
+
+
+	def __str__(self):
+		return self.customer
+
