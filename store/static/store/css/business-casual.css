@@ -12,14 +12,28 @@ body {
     -o-background-size: cover;
 }
 
-/* Presantation */
- /*background: rgba(255,255,255,0.9);*/
-    /*background: #171717;*/
-    /*background:#454545;*/
-    /* #D1D1D1, #BABABA, #E8E8E8 */
+
+/** New **/
+
+figcaption {
+    color: white !important;
+}
+.blanket {
+    color: white;
+}
+
+a:hover, button:hover {
+    color: #006464;
+    list-style: none;
+    text-decoration: none;
+}
+
+button {
+    background-color: #006464 !important;
+}
+
 footer{
     background: #2E2E2E;
-
 }
 
 .presentation {
