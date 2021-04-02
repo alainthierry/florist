@@ -1,0 +1,33 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<div>
+	<div class="row w-75">
+		<div class="col">
+			<h1>
+				{% if message %}
+					<p>{{ message }}</p>
+				{% else %}
+
+					{% for flower in flowers %}
+					<div class="col-sm-4 text-center">
+						<a href="{% url 'store:detail' flower_id=flower.id %}">
+		              	<img class="img-responsive" src="{{ flower.image_url }}" alt="{{ flower.name }}">
+		            	</a>
+		            	<h4><a href="{% url 'store:detail' flower_id=flower.id %}">{{ flower.name }}</a></h4>
+		        	</div>
+					{% endfor %}
+
+				{% endif %}
+				
+			</h1>
+		</div>
+	</div>
+</div>
+
+<div>
+	
+</div>
+
+{% endblock %}

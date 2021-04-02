@@ -1,0 +1,19 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+    	{% if message %}
+    		<p>{{ message }}</p>
+    		<iframe style="width: 77%; margin: auto;" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    	{% else %}
+    		<iframe style="width: 77%; margin: auto;" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    	{% endif %}
+     
+    </div>
+  </div>
+</div>
+
+{% endblock %}

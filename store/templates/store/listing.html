@@ -1,0 +1,39 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+{% if flowers|length_is:"0" %}
+
+    <div class="text-center">
+      Palsambleu ! Nous n'avons trouvé aucun résultat à cette requête. Même pas de quoi se ronger la chique !
+      Partez de nouveau à l'abordage !
+    </div>
+
+{% else %}
+    {% for flower in flowers %}
+
+        <div class="col-sm-4 text-center">
+            <a href="{% url 'store:detail' flower_id=flower.id %}">
+              <img class="img-responsive" src="{{ flower.image_url }}" alt="{{ flower.name }}">
+            </a>
+            <h3><a href="{% url 'store:detail' flower_id=flower.id %}">{{ flower.name }}</a></h3>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}<div class="clearfix"></div>{% endif %}
+    {% endfor %}
+    <div class="clearfix"></div>
+    <nav aria-label="...">
+        <ul class="pager">
+            <li>Page {{ flowers.number }} de {{ flowers.paginator.num_pages }}</li>
+            {% if flowers.has_previous %}
+                <li><a href="?page={{ flowers.previous_page_number }}" >Précédent</a></li>
+            {% endif %}
+            {% if flowers.has_next %}
+                <li><a href="?page={{ flowers.next_page_number }}" >Suivant</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+{% endif %}
+
+
+{% endblock %}

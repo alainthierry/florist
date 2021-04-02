@@ -1,0 +1,51 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-6">
+      <h1>
+        <div class="col-sm-6 text-center">
+          <img class="img-responsive" src="{{ flower.image_url }}" alt="{{ flower.name }}">
+          <h3 class="text-center">{{ flower.name }} &nbsp; {{ flower.price }} €</h3>
+        </div>
+      </h1>
+      <p class="justify-content">{{ flower.description }}</p>
+    </div>
+    <div class="col-sm-6">
+      <h2 class="text-center">Réserver {{ flower.name }}</h2>
+      <p>
+        Demandez-nous de mettre de côté {{ flower.name }} et venez le chercher dès demain en magasin !
+      </p>
+
+      <form method="POST" action="{% url 'store:detail' flower_id=flower.id %}" style="width: 93%;">
+
+        {% csrf_token %} 
+
+        <div class="form-group">
+          <label for="name">Votre nom</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Votre email</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+         <div class="form-group">
+          <label for="phone_number">Téléphone</label>
+          <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+          <input type="hidden" name="flower_id" value="{{ flower.id }}">
+        </div>
+        <button type="submit" class="btn btn-primary" style="background-color: #006464;">Réserver</button>
+      </form>
+
+    </div>     
+  </div>
+</div>
+
+{% endblock %}
+
+
+
